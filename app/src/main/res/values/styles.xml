@@ -6,6 +6,36 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="CaptionTextView">
+        <item name="android:textColor">@color/textColorHints</item>
+        <item name="android:textSize">@dimen/text_size_caption_material</item>
+    </style>
+
+    <style name="SubTitleTextView">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_subhead_material</item>
+    </style>
+
+    <style name="TitleTextView">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_title_material</item>
+    </style>
+
+    <style name="HeadlineTextView">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_headline_material</item>
+    </style>
+
+    <style name="PrimaryTextView">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_menu_material</item>
+    </style>
+
+    <style name="MediumTextView" parent="PrimaryTextView">
+        <item name="android:textSize">@dimen/text_size_medium_material</item>
     </style>
 
 </resources>

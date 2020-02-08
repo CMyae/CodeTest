@@ -1,6 +1,6 @@
 package co.codigo.codetest.presentation.internal.di.modules
 
-import co.codigo.codetest.data.repo.WonderRepo
+import co.codigo.codetest.domain.repo.WonderRepo
 import co.codigo.codetest.data.repo.WonderRepoImpl
 import co.codigo.codetest.data.repo.datasource.WonderLocalDataSource
 import co.codigo.codetest.data.repo.datasource.WonderLocalDataSourceImpl
@@ -8,6 +8,7 @@ import co.codigo.codetest.data.repo.datasource.WonderNetworkDataSource
 import co.codigo.codetest.data.repo.datasource.WonderNetworkDataSourceImpl
 import dagger.Module
 import dagger.Provides
+import retrofit2.Retrofit
 import javax.inject.Singleton
 
 /**
@@ -27,8 +28,8 @@ class RepoModule {
 
   @Singleton
   @Provides
-  fun provideWonderNetworkDataSource(): WonderNetworkDataSource {
-    return WonderNetworkDataSourceImpl()
+  fun provideWonderNetworkDataSource(retrofit: Retrofit): WonderNetworkDataSource {
+    return WonderNetworkDataSourceImpl(retrofit)
   }
 
   @Singleton

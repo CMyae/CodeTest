@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CodeTest</string>
+    <string name="label_no_internet">Please connect to internet</string>
+
 </resources>

@@ -1,5 +1,7 @@
 package co.codigo.codetest.presentation.internal.di.modules
 
+import androidx.lifecycle.ViewModel
+import co.codigo.codetest.presentation.features.wonderlist.WonderViewModel
 import co.codigo.codetest.presentation.internal.di.ViewModelKey
 import dagger.Binds
 import dagger.Module
@@ -11,4 +13,8 @@ import dagger.multibindings.IntoMap
 @Module
 abstract class ViewModelModule {
 
+    @Binds
+    @IntoMap
+    @ViewModelKey(WonderViewModel::class)
+    abstract fun bindWonderViewModel(jobViewModel: WonderViewModel): ViewModel
 }
