@@ -51,9 +51,7 @@ dependencies {
     implementation dataDependencies.rxJava
     implementation dataDependencies.rxAndroid
 
-
     implementation presentationDependencies.designSupportLib
-
 
     implementation presentationDependencies.lifecycle
 
