@@ -1,6 +1,7 @@
 package co.codigo.codetest.domain.repo
 
 import co.codigo.codetest.domain.models.Wonder
+import io.reactivex.Observable
 import io.reactivex.Single
 
 /**
@@ -8,5 +9,5 @@ import io.reactivex.Single
  */
 interface WonderRepo {
 
-    fun getWonderItems(): Single<List<Wonder>>
+    fun getWonderItems(): Observable<List<Wonder>>
 }

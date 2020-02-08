@@ -18,6 +18,6 @@ class WonderNetworkDataSourceImpl(private val retrofit: Retrofit) : WonderNetwor
     override fun fetchWonderItems(): Single<List<Wonder>> {
         return wonderService.getWonderItems().map {
             wonderResponseMapper.transform(it.wonders)
-        }
+        }.retry(2)
     }
 }

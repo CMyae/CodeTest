@@ -7,7 +7,7 @@ import co.codigo.codetest.domain.models.Wonder
 import co.codigo.codetest.presentation.internal.Lce
 import co.codigo.codetest.presentation.mapper.WonderUiModelMapper
 import co.codigo.codetest.presentation.model.WonderUiModel
-import io.reactivex.observers.DisposableSingleObserver
+import io.reactivex.observers.DisposableObserver
 import javax.inject.Inject
 
 /**
@@ -23,8 +23,11 @@ class WonderViewModel @Inject constructor(
 
     fun getWonderItems() {
         _wonderLiveData.postValue(Lce.Loading)
-        getWonderItems.execute(object : DisposableSingleObserver<List<Wonder>>() {
-            override fun onSuccess(result: List<Wonder>) {
+        getWonderItems.execute(object : DisposableObserver<List<Wonder>>() {
+            override fun onComplete() {
+            }
+
+            override fun onNext(result: List<Wonder>) {
                 _wonderLiveData.postValue(Lce.Content(wonderUiModelMapper.transform(result)))
             }
 
