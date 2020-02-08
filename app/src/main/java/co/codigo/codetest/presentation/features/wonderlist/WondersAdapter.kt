@@ -14,33 +14,43 @@ import co.codigo.codetest.presentation.model.WonderUiModel
 /**
  * Created by Chan Myae Aung on 2/8/20.
  */
-class WondersAdapter : ListAdapter<WonderUiModel, WonderViewHolder>(
-    object : DiffUtil.ItemCallback<WonderUiModel>() {
-        override fun areItemsTheSame(oldItem: WonderUiModel, newItem: WonderUiModel): Boolean {
-            return oldItem.location == newItem.location
-        }
+class WondersAdapter(private val itemClickListener: WonderItemClickListener) :
+    ListAdapter<WonderUiModel, WonderViewHolder>(
+        object : DiffUtil.ItemCallback<WonderUiModel>() {
+            override fun areItemsTheSame(oldItem: WonderUiModel, newItem: WonderUiModel): Boolean {
+                return oldItem.location == newItem.location
+            }
 
-        override fun areContentsTheSame(oldItem: WonderUiModel, newItem: WonderUiModel): Boolean {
-            return oldItem == newItem
-        }
+            override fun areContentsTheSame(
+                oldItem: WonderUiModel,
+                newItem: WonderUiModel
+            ): Boolean {
+                return oldItem == newItem
+            }
 
-    }
-) {
+        }
+    ) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WonderViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_wonder, parent, false)
-        return WonderViewHolder(view)
+        return WonderViewHolder(view, itemClickListener)
     }
 
     override fun onBindViewHolder(holder: WonderViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
+
+    interface WonderItemClickListener {
+        fun onWonderItemClick(model: WonderUiModel)
+    }
 }
 
-class WonderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class WonderViewHolder(val view: View, val listener: WondersAdapter.WonderItemClickListener) :
+    RecyclerView.ViewHolder(view) {
 
     private val ivPlace: ImageView = view.findViewById(R.id.ivPlace)
 
     fun bind(model: WonderUiModel) {
         ivPlace.load(model.imageUrl)
+        view.setOnClickListener { listener.onWonderItemClick(model) }
     }
 }

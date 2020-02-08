@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.codigo.codetest.R
+import co.codigo.codetest.presentation.features.detail.WonderDetailActivity
 import co.codigo.codetest.presentation.internal.Lce
 import co.codigo.codetest.presentation.internal.base.BaseActivity
 import co.codigo.codetest.presentation.internal.di.ViewModelFactory
@@ -15,7 +16,7 @@ import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_wonders.*
 import javax.inject.Inject
 
-class WondersActivity : BaseActivity() {
+class WondersActivity : BaseActivity(), WondersAdapter.WonderItemClickListener {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -23,7 +24,7 @@ class WondersActivity : BaseActivity() {
         viewModelProvider<WonderViewModel>(viewModelFactory)
     }
 
-    private val itemAdapter by lazy { WondersAdapter() }
+    private val itemAdapter by lazy { WondersAdapter(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -72,5 +73,9 @@ class WondersActivity : BaseActivity() {
 
     private fun hideLoading() {
         progressBar.toGone()
+    }
+
+    override fun onWonderItemClick(model: WonderUiModel) {
+        WonderDetailActivity.start(this, model)
     }
 }
