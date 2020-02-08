@@ -68,11 +68,11 @@ class WondersActivity : BaseActivity(), WondersAdapter.WonderItemClickListener {
     }
 
     private fun showLoading() {
-        progressBar.toVisible()
+        loadingShimmer.toVisible()
     }
 
     private fun hideLoading() {
-        progressBar.toGone()
+        loadingShimmer.toGone()
     }
 
     override fun onWonderItemClick(model: WonderUiModel) {

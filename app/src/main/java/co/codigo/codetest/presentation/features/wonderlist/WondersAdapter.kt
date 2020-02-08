@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -48,9 +49,12 @@ class WonderViewHolder(val view: View, val listener: WondersAdapter.WonderItemCl
     RecyclerView.ViewHolder(view) {
 
     private val ivPlace: ImageView = view.findViewById(R.id.ivPlace)
+    private val tvDesc: TextView = view.findViewById(R.id.tvDescription)
 
     fun bind(model: WonderUiModel) {
         ivPlace.load(model.imageUrl)
+        tvDesc.text = model.description
+
         view.setOnClickListener { listener.onWonderItemClick(model) }
     }
 }

@@ -6,11 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".presentation.features.wonderlist.WondersActivity">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
+    <include
+        android:id="@+id/loadingShimmer"
+        layout="@layout/layout_loading_wonder_list"
+        android:visibility="gone"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvWonders"
