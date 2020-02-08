@@ -1,0 +1,200 @@
+allprojects {
+  repositories {
+    jcenter()
+  }
+}
+
+ext {
+  //Android
+  androidBuildToolsVersion = "29.0.0"
+  androidMinSdkVersion = 19
+  androidTargetSdkVersion = 29
+  androidCompileSdkVersion = 29
+
+  //Libraries
+  daggerVersion = '2.25.2'
+  butterKnifeVersion = '10.2.0'
+  recyclerViewVersion = '28.0.0'
+  supportLibVersion = '28.0.0'
+  cardViewVersion = '28.0.0'
+  androidAnnotationsVersion = '28.0.0'
+  constrainLayoutVersion = '1.1.3'
+  rxJavaVersion = '2.2.8'
+  rxAndroidVersion = '2.1.1'
+  javaxAnnotationVersion = '1.0'
+  javaxInjectVersion = '1'
+  gsonVersion = '2.8.5'
+  retrofitVersion = '2.5.0'
+  okHttpVersion = '3.12.1'
+  autoValue = '1.6.5'
+  bottomNavigation = '2.1.0'
+  glide = '4.9.0'
+  circularImageView = '2.2.0'
+  qrScanner = '2.0.3'
+  accountKit = '4.23.0'
+  calendar = '1.4.3'
+  timber = '4.7.1'
+  jwt = '0.9.1'
+  firebase = '17.2.0'
+  firebaseMessaging = '20.0.0'
+  firebasePref = '19.0.0'
+  multidex = '1.0.3'
+  room = '2.2.1'
+  androidJob = '1.2.4'
+  graphql = '1.2.1'
+  pinEditText = '2.0.6'
+  fastScroll = '1.1.2'
+  crashlytics = '2.10.1'
+  lifecycleVersion = '1.1.1'
+  smartLocationVersion = '3.3.3'
+  nav_version = "1.0.0"
+  three_ten_abp = "1.2.0"
+
+  //Testing
+  robolectricVersion = '3.1.1'
+  jUnitVersion = '4.12'
+  assertJVersion = '3.12.2'
+  mockitoVersion = '3.2.0'
+  dexmakerVersion = '1.0'
+  espressoVersion = '3.0.2'
+  testingSupportLibVersion = '0.1'
+  testRunner = '1.0.2'
+  testRules = '1.0.2'
+
+
+  //Development
+  leakCanaryVersion = '1.6.3'
+
+
+  presentationTestDependencies = [
+
+      junit            : "junit:junit:${jUnitVersion}",
+      mockito          : "org.mockito:mockito-core:${mockitoVersion}",
+      mockitoAndroid   : "org.mockito:mockito-android:2.6.2",
+      espresso         : 'androidx.test.espresso:espresso-core:3.1.0',
+      testingSupportLib: "com.android.support.test:testing-support-lib:${testingSupportLibVersion}",
+      testRunner       : 'androidx.test:runner:1.1.0',
+      testRules        : "com.android.support.test:rules:${testRules}"
+
+  ]
+
+  presentationDependencies = [
+
+      daggerCompiler        : "com.google.dagger:dagger-compiler:${daggerVersion}",
+      dagger                : "com.google.dagger:dagger:${daggerVersion}",
+      daggerAndroid         : "com.google.dagger:dagger-android:${daggerVersion}",
+      daggerAndroidSupport  : "com.google.dagger:dagger-android-support:${daggerVersion}",
+      daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:${daggerVersion}",
+      butterKnife           : "com.jakewharton:butterknife:${butterKnifeVersion}",
+      butterKnifeProcessor  : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+      supportLib            : 'androidx.appcompat:appcompat:1.1.0',
+      designSupportLib      : 'com.google.android.material:material:1.0.0',
+      recyclerView          : 'androidx.recyclerview:recyclerview:1.1.0',
+      cardView              : 'androidx.cardview:cardview:1.0.0',
+      constraintLayout      : 'androidx.constraintlayout:constraintlayout:1.1.3',
+      rxJava                : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+      rxAndroid             : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+      javaxAnnotation       : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+      bottomNavigation      : "com.aurelhubert:ahbottomnavigation:${bottomNavigation}",
+      autoValue             : "com.google.auto.value:auto-value:${autoValue}",
+      glide                 : "com.github.bumptech.glide:glide:${glide}",
+      glideProcessor        : "com.github.bumptech.glide:compiler:${glide}",
+      qrScanner             : "com.dlazaro66.qrcodereaderview:qrcodereaderview:${qrScanner}",
+      accountKit            : "com.facebook.android:account-kit-sdk:${accountKit}",
+      calendar              : "com.prolificinteractive:material-calendarview:${calendar}",
+      timber                : "com.jakewharton.timber:timber:${timber}",
+      jwt                   : "io.jsonwebtoken:jjwt:${jwt}",
+      analytics             : "com.google.firebase:firebase-analytics:${firebase}",
+      fcm                   : "com.google.firebase:firebase-messaging:${firebaseMessaging}",
+      firebase_pref         : "com.google.firebase:firebase-perf:${firebasePref}",
+      multidex              : 'androidx.multidex:multidex:2.0.0',
+      roomRuntime           : "android.arch.persistence.room:runtime:${room}",
+      roomCompiler          : "android.arch.persistence.room:compiler:${room}",
+      androidJob            : "com.evernote:android-job:${androidJob}",
+      pinEditText           : "com.alimuzaffar.lib:pinentryedittext:${pinEditText}",
+      fastScroll            : "com.l4digital.fastscroll:fastscroll:${fastScroll}",
+      crashlytics           : "com.crashlytics.sdk.android:crashlytics:${crashlytics}",
+      gson                  : "com.google.code.gson:gson:${gsonVersion}",
+      javaxInject           : "javax.inject:javax.inject:${javaxInjectVersion}",
+      leakCanaryRelease     : "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}",
+      fragmentLeakCanary    : "com.squareup.leakcanary:leakcanary-support-fragment-no-op:${leakCanaryVersion}",
+      lifecycle             : 'androidx.lifecycle:lifecycle-extensions:2.0.0',
+      avatarView            : "cn.carbs.android:AvatarImageView:1.0.3",
+      filePicker            : "com.droidninja:filepicker:2.1.5",
+      smartLocation         : "io.nlopez.smartlocation:library:${smartLocationVersion}",
+      navFragment           : 'androidx.navigation:navigation-fragment-ktx:2.0.0-rc02',
+      navigationUi          : 'androidx.navigation:navigation-ui-ktx:2.0.0-rc02',
+      threeTenABP           : "com.jakewharton.threetenabp:threetenabp:$three_ten_abp"
+  ]
+
+  domainDependencies = [
+
+      javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+      javaxInject    : "javax.inject:javax.inject:${javaxInjectVersion}",
+      autoValue      : "com.google.auto.value:auto-value:${autoValue}",
+      rxJava         : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+      gson           : "com.google.code.gson:gson:${gsonVersion}",
+      jwt            : "io.jsonwebtoken:jjwt:${jwt}",
+      threeTenABP    : "com.jakewharton.threetenabp:threetenabp:$three_ten_abp"
+
+
+  ]
+
+
+
+  domainTestDependencies = [
+
+      junit  : "junit:junit:${jUnitVersion}",
+      mockito: "org.mockito:mockito-core:${mockitoVersion}",
+      assertj: "org.assertj:assertj-core:${assertJVersion}"
+
+  ]
+
+
+
+  dataDependencies = [
+      crashlytics           : "com.crashlytics.sdk.android:crashlytics:${crashlytics}",
+      daggerCompiler     : "com.google.dagger:dagger-compiler:${daggerVersion}",
+      dagger             : "com.google.dagger:dagger:${daggerVersion}",
+      okHttp             : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+      retrofit           : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+      retrofitRxAdapter  : "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
+      retrofitGsonAdapter: "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+      gson               : "com.google.code.gson:gson:${gsonVersion}",
+      rxJava             : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+      rxAndroid          : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+      javaxAnnotation    : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+      javaxInject        : "javax.inject:javax.inject:${javaxInjectVersion}",
+      androidAnnotations : 'androidx.annotation:annotation:1.0.0',
+      autoValue          : "com.google.auto.value:auto-value:${autoValue}",
+      roomRuntime        : 'androidx.room:room-runtime:2.0.0',
+      roomCompiler       : 'androidx.room:room-compiler:2.0.0',
+      roomRxJava2        : 'androidx.room:room-rxjava2:2.0.0',
+      lifecycle          : 'androidx.lifecycle:lifecycle-common-java8:2.0.0',
+      apolloRuntime      : "com.apollographql.apollo:apollo-runtime:${graphql}",
+      apolloAndroid      : "com.apollographql.apollo:apollo-android-support:${graphql}",
+      apolloCache        : "com.apollographql.apollo:apollo-http-cache:${graphql}",
+      apolloRx           : "com.apollographql.apollo:apollo-rx2-support:${graphql}",
+      timber             : "com.jakewharton.timber:timber:${timber}",
+      threeTenABP        : "com.jakewharton.threetenabp:threetenabp:$three_ten_abp"
+
+  ]
+
+
+
+  dataTestDependencies = [
+
+      junit      : "junit:junit:${jUnitVersion}",
+      assertj    : "org.assertj:assertj-core:${assertJVersion}",
+      mockito    : "org.mockito:mockito-core:${mockitoVersion}",
+      robolectric: "org.robolectric:robolectric:${robolectricVersion}",
+      mockServer : "com.squareup.okhttp3:mockwebserver:${okHttpVersion}",
+      okhttpTestSupport : "com.squareup.okhttp3:okhttp-testing-support:${okHttpVersion}"
+  ]
+
+  developmentDependencies = [
+      fragmentLeakCanary    : "com.squareup.leakcanary:leakcanary-support-fragment:${leakCanaryVersion}",
+      leakCanary: "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}"
+
+  ]
+}
