@@ -16,8 +16,12 @@ class WonderNetworkDataSourceImpl(private val retrofit: Retrofit) : WonderNetwor
     private val wonderResponseMapper = WonderResponseMapper()
 
     override fun fetchWonderItems(): Single<List<Wonder>> {
-        return wonderService.getWonderItems().map {
-            wonderResponseMapper.transform(it.wonders)
-        }.retry(2)
+        return wonderService.getWonderItems().map { wonderResponseMapper.transform(it.wonders) }
+            .retry(2)
+            .onErrorResumeNext {
+                //can send error log to server like Sentry
+                it.printStackTrace()
+                Single.just(listOf())
+            }
     }
 }

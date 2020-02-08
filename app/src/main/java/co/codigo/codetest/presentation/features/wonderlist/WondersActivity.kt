@@ -41,7 +41,7 @@ class WondersActivity : BaseActivity(), WondersAdapter.WonderItemClickListener {
         }
     }
 
-    private fun setUpToolbar(){
+    private fun setUpToolbar() {
         setSupportActionBar(toolbar)
         supportActionBar?.title = getString(R.string.label_wonder)
     }
