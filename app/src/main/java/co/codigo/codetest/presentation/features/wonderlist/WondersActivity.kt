@@ -2,6 +2,7 @@ package co.codigo.codetest.presentation.features.wonderlist
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import co.codigo.codetest.R
 import co.codigo.codetest.presentation.internal.Lce
 import co.codigo.codetest.presentation.internal.base.BaseActivity
@@ -22,15 +23,26 @@ class WondersActivity : BaseActivity() {
         viewModelProvider<WonderViewModel>(viewModelFactory)
     }
 
+    private val itemAdapter by lazy { WondersAdapter() }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wonders)
 
+        setUpRecyclerView()
         observeWonderList()
 
         if (savedInstanceState == null) {
             viewModel.getWonderItems()
+        }
+    }
+
+    private fun setUpRecyclerView() {
+        rvWonders.apply {
+            layoutManager = LinearLayoutManager(this@WondersActivity)
+            setHasFixedSize(true)
+            adapter = itemAdapter
         }
     }
 
@@ -45,13 +57,13 @@ class WondersActivity : BaseActivity() {
                 renderError(it.throwable)
             }
             if (it is Lce.Content) {
-                renderWonderItems(listOf())
+                renderWonderItems(it.content)
             }
         })
     }
 
     private fun renderWonderItems(items: List<WonderUiModel>) {
-
+        itemAdapter.submitList(items)
     }
 
     private fun showLoading() {

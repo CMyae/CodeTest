@@ -13,10 +13,10 @@ class WonderResponseMapper : BaseDataMapper<Wonder, WonderItem>() {
     override fun transform(dataModel: WonderItem): Wonder {
         return with(dataModel) {
             Wonder(
-                locationName = location,
+                name = location,
                 description = description,
                 image = image,
-                location = WonderLocation(lat, lng)
+                location = WonderLocation(lat.toDouble(), lng.toDouble())
             )
         }
     }

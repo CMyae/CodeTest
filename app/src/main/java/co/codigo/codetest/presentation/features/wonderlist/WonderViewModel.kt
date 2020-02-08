@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import co.codigo.codetest.domain.interactors.GetWonderItems
 import co.codigo.codetest.domain.models.Wonder
 import co.codigo.codetest.presentation.internal.Lce
+import co.codigo.codetest.presentation.mapper.WonderUiModelMapper
+import co.codigo.codetest.presentation.model.WonderUiModel
 import io.reactivex.observers.DisposableSingleObserver
 import javax.inject.Inject
 
@@ -15,13 +17,15 @@ class WonderViewModel @Inject constructor(
     private val getWonderItems: GetWonderItems
 ) : ViewModel() {
 
-    private val _wonderLiveData = MutableLiveData<Lce<List<Wonder>>>()
+    private val _wonderLiveData = MutableLiveData<Lce<List<WonderUiModel>>>()
+
+    private val wonderUiModelMapper = WonderUiModelMapper()
 
     fun getWonderItems() {
         _wonderLiveData.postValue(Lce.Loading)
         getWonderItems.execute(object : DisposableSingleObserver<List<Wonder>>() {
             override fun onSuccess(result: List<Wonder>) {
-                _wonderLiveData.postValue(Lce.Content(result))
+                _wonderLiveData.postValue(Lce.Content(wonderUiModelMapper.transform(result)))
             }
 
             override fun onError(e: Throwable) {

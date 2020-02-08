@@ -1,6 +1,8 @@
 package co.codigo.codetest.presentation.internal.extensions
 
 import android.view.View
+import android.widget.ImageView
+import com.bumptech.glide.Glide
 
 /**
  * Created by Chan Myae Aung on 2/8/20.
@@ -16,4 +18,8 @@ fun View.toInvisible() {
 
 fun View.toGone() {
     this.visibility = View.GONE
+}
+
+fun ImageView.load(url: String) {
+    Glide.with(this).load(url).into(this)
 }
