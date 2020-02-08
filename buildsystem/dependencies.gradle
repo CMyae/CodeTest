@@ -13,6 +13,7 @@ ext {
 
   //Libraries
   daggerVersion = '2.25.2'
+  shimmer = '2.1.0'
   butterKnifeVersion = '10.2.0'
   recyclerViewVersion = '28.0.0'
   supportLibVersion = '28.0.0'
@@ -124,7 +125,8 @@ ext {
       smartLocation         : "io.nlopez.smartlocation:library:${smartLocationVersion}",
       navFragment           : 'androidx.navigation:navigation-fragment-ktx:2.0.0-rc02',
       navigationUi          : 'androidx.navigation:navigation-ui-ktx:2.0.0-rc02',
-      threeTenABP           : "com.jakewharton.threetenabp:threetenabp:$three_ten_abp"
+      threeTenABP           : "com.jakewharton.threetenabp:threetenabp:$three_ten_abp",
+      shimmer               : "io.supercharge:shimmerlayout:$three_ten_abp"
   ]
 
   domainDependencies = [

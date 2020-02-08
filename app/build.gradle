@@ -62,6 +62,7 @@ dependencies {
     kapt presentationDependencies.roomCompiler
 
     implementation presentationDependencies.glide
+    implementation presentationDependencies.shimmer
     kapt presentationDependencies.glideProcessor
     implementation presentationDependencies.recyclerView
 }
