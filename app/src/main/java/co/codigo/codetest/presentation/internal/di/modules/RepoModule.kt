@@ -1,5 +1,6 @@
 package co.codigo.codetest.presentation.internal.di.modules
 
+import co.codigo.codetest.data.database.WonderDatabase
 import co.codigo.codetest.domain.repo.WonderRepo
 import co.codigo.codetest.data.repo.WonderRepoImpl
 import co.codigo.codetest.data.repo.datasource.WonderLocalDataSource
@@ -17,24 +18,24 @@ import javax.inject.Singleton
 @Module
 class RepoModule {
 
-  @Singleton
-  @Provides
-  fun provideWonderRepo(
-    networkDataSource: WonderNetworkDataSource,
-    localDataSource: WonderLocalDataSource
-  ): WonderRepo {
-    return WonderRepoImpl(networkDataSource, localDataSource)
-  }
+    @Singleton
+    @Provides
+    fun provideWonderRepo(
+        networkDataSource: WonderNetworkDataSource,
+        localDataSource: WonderLocalDataSource
+    ): WonderRepo {
+        return WonderRepoImpl(networkDataSource, localDataSource)
+    }
 
-  @Singleton
-  @Provides
-  fun provideWonderNetworkDataSource(retrofit: Retrofit): WonderNetworkDataSource {
-    return WonderNetworkDataSourceImpl(retrofit)
-  }
+    @Singleton
+    @Provides
+    fun provideWonderNetworkDataSource(retrofit: Retrofit): WonderNetworkDataSource {
+        return WonderNetworkDataSourceImpl(retrofit)
+    }
 
-  @Singleton
-  @Provides
-  fun provideWonderLocalDataSource(): WonderLocalDataSource {
-    return WonderLocalDataSourceImpl()
-  }
+    @Singleton
+    @Provides
+    fun provideWonderLocalDataSource(wonderDatabase: WonderDatabase): WonderLocalDataSource {
+        return WonderLocalDataSourceImpl(wonderDatabase)
+    }
 }

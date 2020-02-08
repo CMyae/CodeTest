@@ -2,4 +2,6 @@
     <string name="app_name">CodeTest</string>
     <string name="label_no_internet">Please connect to internet</string>
 
+
+    <string name="wonder_db_name">wonder-place-database</string>
 </resources>

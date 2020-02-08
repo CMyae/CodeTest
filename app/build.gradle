@@ -57,6 +57,10 @@ dependencies {
 
     implementation presentationDependencies.lifecycle
 
+    implementation presentationDependencies.roomRuntime
+    implementation dataDependencies.roomRxJava2
+    kapt presentationDependencies.roomCompiler
+
     implementation presentationDependencies.glide
     kapt presentationDependencies.glideProcessor
     implementation presentationDependencies.recyclerView

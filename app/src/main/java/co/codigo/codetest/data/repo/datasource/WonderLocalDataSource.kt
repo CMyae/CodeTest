@@ -9,4 +9,6 @@ import io.reactivex.Single
 interface WonderLocalDataSource {
 
     fun getWonderItemFromDB(): Single<List<Wonder>>
+
+    fun saveWonderItemInDB(wonders: List<Wonder>)
 }
