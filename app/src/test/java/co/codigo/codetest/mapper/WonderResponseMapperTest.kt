@@ -26,7 +26,7 @@ class WonderResponseMapperTest {
     }
 
     @Test
-    fun `test ui model mapper map correctly`() {
+    fun `test response mapper map correctly`() {
         val actual = mapper.transform(list)
         val expected = listOf(
             Wonder(
