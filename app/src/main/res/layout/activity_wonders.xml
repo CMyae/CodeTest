@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".presentation.features.wonderlist.WondersActivity">
 
     <include
-        android:id="@+id/loadingShimmer"
-        layout="@layout/layout_loading_wonder_list"
-        android:visibility="gone"/>
+        layout="@layout/include_toolbar"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvWonders"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:itemCount="3"
-        tools:listitem="@layout/item_wonder"/>
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <include
+            android:id="@+id/loadingShimmer"
+            layout="@layout/layout_loading_wonder_list"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvWonders"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_wonder" />
+    </FrameLayout>
+
+</LinearLayout>

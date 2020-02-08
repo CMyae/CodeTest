@@ -14,6 +14,7 @@ import co.codigo.codetest.presentation.internal.extensions.viewModelProvider
 import co.codigo.codetest.presentation.model.WonderUiModel
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_wonders.*
+import kotlinx.android.synthetic.main.include_toolbar.*
 import javax.inject.Inject
 
 class WondersActivity : BaseActivity(), WondersAdapter.WonderItemClickListener {
@@ -31,12 +32,18 @@ class WondersActivity : BaseActivity(), WondersAdapter.WonderItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wonders)
 
+        setUpToolbar()
         setUpRecyclerView()
         observeWonderList()
 
         if (savedInstanceState == null) {
             viewModel.getWonderItems()
         }
+    }
+
+    private fun setUpToolbar(){
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = getString(R.string.label_wonder)
     }
 
     private fun setUpRecyclerView() {

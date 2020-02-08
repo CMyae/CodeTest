@@ -4,4 +4,5 @@
 
 
     <string name="wonder_db_name">wonder-place-database</string>
+    <string name="label_wonder">Wonders</string>
 </resources>
